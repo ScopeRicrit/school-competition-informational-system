@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Tambahkan Siswa Baru</title>
+    <link rel="stylesheet" href="student_signup.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>Tambahkan Siswa</h1>
+      <form action="student_signup.php" method="post">
+        <fieldset>
+          <legend><b>Data Siswa</b></legend>
+          <div id="form_container">
+            <label for="s_nis">NIS<span>*</span></label>
+            <input type="number" name="s_nis" id="s_nis">
+
+            <label for="s_name">Nama <span>*</span></label>
+            <input type="text" name="s_name" id="s_name">
+            
+            <label for="s_major">Jurusan <span>*</span></label>
+            <select name="s_major" id="s_major">
+              <option value="">-- Pilih Jurusan --</option>
+              <option value="RPL">Rekayasa Perangkat Lunak</option>
+              <option value="DKV">Desain Komunikasi Visual</option>
+              <option value="TKJ">Teknik Komputer dan Jaringan</option>
+            </select>
+          
+            <label for="s_class">Kelas <span>*</span></label>
+            <select name="s_class" id="s_class">
+            </select>
+            
+            <label for="s_att_number">No. Absen <span>*</span></label>
+            <input type="number" name="s_att_number" id="s_att_number">
+
+            <label for="s_password">Kata Sandi <span>*</span></label>
+            <input type="text" value="12345678" name="s_password" id="s_password">
+
+            <label for="s_password_confirm">Konfirmasi Sandi <span>*</span></label>
+            <input type="text" value="12345678" id="s_password_confirm">
+          </div>
+          <p style="color: red" id="validation_text"></p>
+          <input id="submit_button" type="button" value="Tambahkan">
+        </fieldset>
+      </form>  
+    </main>
+  </body>
+
+  <script src="student_signup.js" defer></script>
+</html>

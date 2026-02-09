@@ -1,0 +1,63 @@
+* {
+  margin: auto auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: table;
+  height: 100vh;  
+}
+
+main {
+  display: table-cell;
+  vertical-align: middle;  
+}
+
+fieldset {
+  width: 500px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#form_container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 10px;
+  width: fit-content;
+}
+
+#form_container input, #form_container select {
+  width: 100%;
+}
+
+#form_container > :nth-child(even), #form_container option {
+  text-align: left;
+}
+
+#form_container > :nth-child(odd) {
+  text-align: right;
+  width: 100%;
+}
+
+#form_container > :last-child() {
+  text-align: center;
+}
+
+#student_nis::-webkit-outer-spin-button,
+#student_nis::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#student_nis[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+#submit_button {
+  width: 100px;
+}
