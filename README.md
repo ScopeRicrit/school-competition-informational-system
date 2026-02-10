@@ -1,7 +1,7 @@
 # School Competition Informational System
 Sebuah website yang memungkinkan siswa untuk menelusuri perlombaan, kegiatan, atau acara akademik maupun non-akademik. Website juga menyediakan profil bawaan untuk semua siswa SMK Negeri 1 Denpasar guna memperlihatkan pencapaian mereka sebagai prestasi.
 
--	Sasaran (Progres 5% pada 4 Februari 2026)
+##	Sasaran (Progres 5%)
 1.	Halaman penambahan data siswa. (Tercapai, namun belum dipercantik)
 2.	Halaman login akun siswa.
 3.	Halaman pendaftaran admin anonim.
@@ -21,3 +21,20 @@ b.	Sortir kategori jurusan.
 c.	Sortir status berjalannya lomba.
 9.	Fitur siswa berpartisipasi untuk perlombaan.
 10.	 Notifikasi peringatan tanggal lomba (Opsional)
+
+##	Keperluan 
+### Software
+1.	VSCode sebagai editor kode.
+2.	XAMPP untuk localhost PHP, dan MySQL  di phpMyAdmin.
+### Bahasa 
+1.	HTML, CSS, dan JavaScript untuk sisi front-end.
+2.	Bahasa PHP sebagai bahasa pemrograman server / back-end.
+3.	MySQL sebagai penyimpanan data (database).
+
+##	Progres
+### 4 Februari 2026
+1.	Merancang halaman formulir HTML pendaftaran siswa.
+2.	Merancang database SCIS beserta tabel jurusan, kelas, dan siswa.
+3.	Berhasil menghubungkan pendaftaran akun dengan database.
+### 11 Februari 2026
+1.	Membuat repositori Github untuk memusatkan kinerja proyek.
