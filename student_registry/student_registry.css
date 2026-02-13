@@ -20,6 +20,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: black solid 2px;
 }
 
 #form_container {
@@ -60,4 +61,8 @@ fieldset {
 
 #submit_button {
   width: 100px;
+}
+
+span, #validation_text {
+  color: red;
 }
