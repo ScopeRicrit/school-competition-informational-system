@@ -1,0 +1,15 @@
+* {
+  margin: auto auto;
+  text-align: center;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background-color: rgb(181, 177, 189);
+  flex-direction: column;
+}
+
+#skensa_logo {
+  width: 150px;
+}
