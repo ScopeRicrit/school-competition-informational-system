@@ -1,0 +1,13 @@
+* {
+  margin: auto auto;
+  text-align: center;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(181, 177, 189);
+}
+
+main {
+  padding: 10px;
+}
