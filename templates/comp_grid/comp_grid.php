@@ -1,13 +1,25 @@
 <?php
   // Competition Card / Postingan
-  function comp_card_html() {
+  function comp_card_html(
+    $name = "Perlombaan Tak Ternama",
+    $thumbnail = "../../assets/images/wide_card_placeholder.png",
+    $major = "???",
+    $opened = true
+  ) {
+    $status_message = "Terbuka";
+    $status_class = "opened";
+    if ($opened == false) {
+      $status_message = "Tertutup";
+      $status_class = "closed";
+    }
+    
     $html = <<<HTML
       <a class="comp_card" href="posting">
         <figure>
-          <img src="../../assets/images/wide_card_placeholder.png" alt="card_placeholder.png">
-          <figcaption id="name"><b>Perlombaan Web</b></figcaption>
-          <p id="major">Jurusan</p>
-          <p id="status" class="ongoing">Terbuka</p>
+          <img src="$thumbnail" alt="thumbnail.png">
+          <figcaption id="name"><b>$name</b></figcaption>
+          <p id="major">$major</p>
+          <p id="status" class="$status_class">$status_message</p>
         </figure>
       </a>
     HTML;
@@ -17,7 +29,8 @@
   
   // Competition Grid
   // Penataan kompetisi
-  function comp_grid_html($title = "Default Title", $desc = "Default Description", $img = "/images/fallback.jpg") {
+  function comp_grid_html() {
+    // Tes Kartu
     $cards = "";
     $cards .= comp_card_html();
     $cards .= comp_card_html();
@@ -83,7 +96,7 @@
 
         .comp_card figcaption {
           grid-area: card_name;
-          font-size: 2em;
+          font-size: 1.2em;
           overflow-wrap: normal;
           width: 100%;
         }
@@ -100,7 +113,7 @@
           margin-right: 0;
         }
 
-        .comp_card .ongoing {
+        .comp_card .opened {
           background-color: green;
         }
 
