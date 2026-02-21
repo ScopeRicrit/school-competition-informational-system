@@ -10,8 +10,9 @@
   background-color: red;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 320px);
   justify-content: center;
+  align-content: baseline;
 }
 
 .comp_card * {
@@ -44,7 +45,7 @@
 
 .comp_card figcaption {
   grid-area: card_name;
-  font-size: 2em;
+  font-size: 1.2em;
   overflow-wrap: normal;
   width: 100%;
 }
@@ -61,7 +62,7 @@
   margin-right: 0;
 }
 
-.comp_card .ongoing {
+.comp_card .opened {
   background-color: green;
 }
 
