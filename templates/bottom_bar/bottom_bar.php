@@ -1,7 +1,13 @@
 <?php
   // Bottom Bar / Footer
   // Bilah navigasi di bagian paling bawah halaman web.
-  function bottom_bar_html($title = "Default Title", $desc = "Default Description", $img = "/images/fallback.jpg") {
+  function bottom_bar_html($account_name = NULL) {
+    $account_message = "Anda belum login (masuk)";
+    if ($account_name != NULL) {
+      $account_name = strtoupper($account_name);
+      $account_message = "Anda login sebagai $account_name";
+    }
+    
     // Heredoc String merupakan sejenis sintaks string yang menetapkan warna kode html di VS Code.
     // Ia diketik dengan tiga tanda panah kiri dan nama bebas.
     // Seperti string double quoted (""), ia dapat disisipkan variabel untuk fleksibilitas.
@@ -15,7 +21,7 @@
           <img src="../../assets/images/social_icons/fb.png" alt="facebook_icon.png">
         </a>
 
-        <p>Anda belum login (masuk)</p>
+        <p>$account_message</p>
 
         <a id="yt_icon" href="https://youtube.com/@smkn1denpasar">
           <img src="../../assets/images/social_icons/yt.png" alt="youtube_icon.png">
