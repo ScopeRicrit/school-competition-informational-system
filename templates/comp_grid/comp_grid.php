@@ -18,8 +18,8 @@
         <figure>
           <img src="$thumbnail" alt="thumbnail.png">
           <figcaption id="name"><b>$name</b></figcaption>
-          <p id="major">$major</p>
-          <p id="status" class="$status_class">$status_message</p>
+          <p class="major">$major</p>
+          <p class="status $status_class">$status_message</p>
         </figure>
       </a>
     HTML;
@@ -126,3 +126,4 @@
     echo $html;
   }
 ?>
+
