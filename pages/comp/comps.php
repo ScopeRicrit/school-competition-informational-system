@@ -8,9 +8,9 @@
   
   <?php
     // Impor fungsi dari file PHP lain.
-    require_once "../../templates/top_bar/top_bar.php";
-    require_once "../../templates/bottom_bar/bottom_bar.php";
-    require_once "../../templates/comp_grid/comp_grid.php";
+    require_once "../../templates/top_bar.php";
+    require_once "../../templates/bottom_bar.php";
+    require_once "../../templates/comp_grid.php";
 
     top_bar_css();
     bottom_bar_css();

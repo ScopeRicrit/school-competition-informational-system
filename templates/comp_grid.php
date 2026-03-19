@@ -2,7 +2,7 @@
   // Competition Card / Postingan
   function comp_card_html(
     $name = "Perlombaan Tak Ternama",
-    $thumbnail = "../../assets/images/wide_card_placeholder.png",
+    $thumbnail = "../../assets/images/default_comp_card.png",
     $major = "???",
     $opened = true
   ) {
@@ -30,8 +30,12 @@
   // Competition Grid
   // Penataan kompetisi
   function comp_grid_html() {
-    // Tes Kartu
     $cards = "";
+    
+    foreach ($comps as $comp) {
+      $cards .= comp_card_html($comp["name"], $comp["thumbnail"], $comp["major"], $comp["opened"]);
+    }
+    // Tes Kartu
     $cards .= comp_card_html();
     $cards .= comp_card_html();
     $cards .= comp_card_html();
@@ -83,6 +87,7 @@
           display: grid;
           padding: 10px;
           justify-content: space-between;
+          grid-template-columns: 70% 30%; 
           grid-template-areas: 
           "card_thumb card_thumb"
           "card_name card_name"
@@ -91,7 +96,7 @@
 
         .comp_card img {
           grid-area: card_thumb;
-          max-height: 120px;
+          max-width: 100%;
         }
 
         .comp_card figcaption {
@@ -101,16 +106,16 @@
           width: 100%;
         }
 
-        .comp_card #major {
+        .comp_card .major {
           grid-area: card_major;
           width: 100%;
         }
 
-        .comp_card #status {
+        .comp_card .status {
           grid-area: card_status;
-          width: fit-content;
-          padding: 2px 5px;
+          width: 100%;
           margin-right: 0;
+          text-align: center;
         }
 
         .comp_card .opened {
@@ -126,4 +131,3 @@
     echo $html;
   }
 ?>
-
