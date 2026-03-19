@@ -30,8 +30,12 @@
   // Competition Grid
   // Penataan kompetisi
   function comp_grid_html() {
-    // Tes Kartu
     $cards = "";
+    
+    foreach ($comps as $comp) {
+      $cards .= comp_card_html($comp["name"], $comp["thumbnail"], $comp["major"], $comp["opened"]);
+    }
+    // Tes Kartu
     $cards .= comp_card_html();
     $cards .= comp_card_html();
     $cards .= comp_card_html();
