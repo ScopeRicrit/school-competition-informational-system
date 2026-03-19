@@ -7,6 +7,7 @@
     // Heredoc String merupakan sejenis sintaks string yang menetapkan warna kode html di VS Code.
     // Ia diketik dengan tiga tanda panah kiri dan nama bebas.
     // Seperti string double quoted (""), ia dapat disisipkan variabel untuk fleksibilitas.
+    
     $html = <<<HTML
       <header>
         <nav id="root_nav">
@@ -15,8 +16,8 @@
               <img id="logo" src="../../assets/images/logo_lms.png" alt="logo-scis.png">
             </a>
             <a href="../../pages/home/home.php">Beranda</a>
-            <a href="../../pages/comp/comps.php">Perlombaan</a>
-            <a href="students">Siswa</a>
+            <a href="../../pages/comps/comps.php">Perlombaan</a>
+            <a href="../../pages/students/students.php">Siswa</a>
           </nav>
 
           <nav id="user_menu">
