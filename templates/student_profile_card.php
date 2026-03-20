@@ -24,7 +24,8 @@
     $profile_pic = "../../assets/images/default_pfp.jpg",
     $profile_description = "[Tidak ada deskripsi]",
     $joined_comps = [],
-    $created_on = "??/??/??"
+    $created_on = "??/??/??",
+    $viewed_by_owner = false
   ) {
     $entries = "";
     
@@ -37,13 +38,20 @@
     $entries .= joined_comps_html("Kontes Web Developer");
     $entries .= joined_comps_html("Perlombaan Basket");
     
+    $edit_profile_button = "";
+    if ($viewed_by_owner) {
+      $edit_profile_button = <<<HTML
+        <a id="edit_profile" href="">Edit Profil</a> 
+      HTML;
+    }
+
     $html = <<<HTML
       <div id="student_profile">
         <section>
           <figure>
             <img src="$profile_pic" alt="pfp.png">    
             <figcaption><h1>$name</h1></figcaption>
-            <a id="edit_profile" href="">Edit Profil</a>
+            $edit_profile_button
           </figure>
           <div id="student_datas">
             <div id="student_creds">
