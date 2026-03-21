@@ -25,8 +25,15 @@
   // Student Grid
   // Penataan siswa
   function student_grid_html() {
-    // Tes Kartu
     $cards = "";
+    
+    foreach ($students as $student) {
+      $cards .= student_card_html(
+        $student["name"], $student["att_number"], $student["class"], $student["profile_pic"]
+      ); 
+    }
+    
+    // Tes Kartu
     $cards .= student_card_html("I Wayan Aditya Pramata", 10, "X RPL 1");
     $cards .= student_card_html("Anak Agung Rahyanadi", 1, "X RPL 1");
     $cards .= student_card_html("Yomaharu Wariyui", 30, "X RPL 1");
