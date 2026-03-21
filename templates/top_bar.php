@@ -13,7 +13,7 @@
         <nav id="root_nav">
           <nav id="primary_nav">  
             <a href="home">
-              <img id="logo" src="../../assets/images/logo_lms.png" alt="logo-scis.png">
+              <img id="logo" src="../../assets/images/logo_scis.png" alt="logo_scis.png">
             </a>
             <a href="../../pages/home/home.php">Beranda</a>
             <a href="../../pages/comps/comps.php">Perlombaan</a>
