@@ -108,34 +108,34 @@
           flex-direction: column;
         }
 
-        figure {
+        #student_profile figure {
           width: 40%;
         }
 
-        figure img {
+        #student_profile figure img {
           height: 150px;
         }
 
-        #student_datas {
+        #student_profile #student_datas {
           width: 60%;
         }
 
-        #student_creds {
+        #student_profile #student_creds {
           display: grid;
           grid-template-columns: 30% 70%;
         }
 
-        #student_creds > * {
+        #student_profile #student_creds > * {
           text-align: left;
         }
 
-        #edit_profile {
+        #student_profile #edit_profile {
           display: block;
           background-color: orange;
           padding: 5px 0;
         }
 
-        #description {
+        #student_profile #description {
           max-width: 100%;
           text-align: left;
           margin-top: 10px;
@@ -143,16 +143,16 @@
           word-wrap: break-word;
         }
 
-        h3 {
+        #student_profile h3 {
           padding: 10px
         }
 
-        #comp_list {
+        #student_profile #comp_list {
           display: flex;
           flex-direction: column;
         }
 
-        .comp_entry {
+        #student_profile .comp_entry {
           display: flex;
           align-items: center;
           justify-content: left;
@@ -160,7 +160,7 @@
           gap: 10px;
         }
 
-        .comp_entry img {
+        #student_profile .comp_entry img {
           width: 40px;
         }
       </style>
