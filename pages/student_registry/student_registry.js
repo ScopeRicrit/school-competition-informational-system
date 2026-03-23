@@ -1,17 +1,17 @@
-let signUpForm = document.forms[0];
+let registryForm = document.forms["registry_form"];
 
 // Mengupdate opsi-opsi kelas setiap pergantian kelas.
-signUpForm.major.addEventListener("change", updateClassOptions);
+registryForm.major.addEventListener("change", updateClassOptions);
 
 function updateClassOptions() {
-  let selectedMajor = signUpForm.major.value;
+  let selectedMajor = registryForm.major.value;
   
-  for (const classOption of signUpForm.class.options) {
+  for (const classOption of registryForm.class.options) {
     classOption.style.display = "none";
   } 
 
-  signUpForm.class.options[0].style.display = "block";
-  signUpForm.class.value = "";
+  registryForm.class.options[0].style.display = "block";
+  registryForm.class.value = "";
 
   for (const classOption of document.getElementsByClassName(selectedMajor)) {
     classOption.style.display = "block";
@@ -20,18 +20,18 @@ function updateClassOptions() {
 
 
 // Prosedur validasi data siswa secara klien sebelum divalidasi di server.
-signUpForm.submit_button.addEventListener("click", clientValidation);
+registryForm.submit_button.addEventListener("click", clientValidation);
 
 function clientValidation() {
   setValidityText("");
 
   student_data = [
-    signUpForm.nis.value, 
-    signUpForm.name.value,
-    signUpForm.major.value,
-    signUpForm.class.value,
-    signUpForm.password.value,
-    signUpForm.password_confirm.value
+    registryForm.nis.value, 
+    registryForm.name.value,
+    registryForm.major.value,
+    registryForm.class.value,
+    registryForm.password.value,
+    registryForm.password_confirm.value
   ];
 
   if (!allFieldInputted(student_data)) {
@@ -49,7 +49,7 @@ function clientValidation() {
     return;
   } 
 
-  signUpForm.submit();
+  registryForm.submit();
 }
 
 // Memeriksa apakah semua input formulir sudah terisi.
