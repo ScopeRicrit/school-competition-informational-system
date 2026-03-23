@@ -1,0 +1,61 @@
+* {
+  margin: auto auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: table;
+  height: 100vh;  
+}
+
+main {
+  display: table-cell;
+  vertical-align: middle;  
+}
+
+fieldset {
+  width: 500px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: black solid 2px;
+}
+
+#form_container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 10px;
+  width: fit-content;
+}
+
+#form_container input, #form_container select {
+  width: 100%;
+}
+
+#form_container > :nth-child(even), #form_container option {
+  text-align: left;
+}
+
+#form_container > :nth-child(odd) {
+  text-align: right;
+  width: 100%;
+}
+
+#scis_logo {
+  width: 50%;
+}
+
+#form_container > :last-child() {
+  text-align: center;
+}
+
+#submit_button {
+  width: 100px;
+}
+
+span, #validation_text {
+  color: red;
+}
