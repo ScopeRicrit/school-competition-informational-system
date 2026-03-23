@@ -7,11 +7,10 @@
     <title>Tambahkan Siswa Baru | SCIS Skensa</title>
     <link rel="stylesheet" href="student_registry.css">
   </head>
-
   <body>
     <main>
       <h1>Tambahkan Siswa</h1>
-      <form action="student_registry_validator.php" method="post">
+      <form id="registry_form" action="student_registry_validator.php" method="post">
         <fieldset>
           <legend><b>Data Siswa</b></legend>
           <div id="form_container">
