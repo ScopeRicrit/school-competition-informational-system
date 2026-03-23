@@ -26,7 +26,7 @@
                 <img src="$profile_pic" alt="pfp.jpg">
               </a>
             </span>
-            <a href="login">Login</a>
+            <a href="../pages/student_login/student_login.php">Login</a>
           </nav>
         </nav>
       </header>
