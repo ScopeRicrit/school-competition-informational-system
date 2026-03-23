@@ -1,5 +1,5 @@
 <?php
-  require_once "../sql/sql_bridge.php";
+  require_once "../../sql/sql_bridge.php";
   
   // Memeriksa apakah nis siswa baru sesuai dengan nis yang telah tercatat.
   function nis_matching($nis) {
