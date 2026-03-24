@@ -85,7 +85,7 @@
       <style>
         #student_profile {
           background-color: red;
-          width: 700px;
+          width: 50%;
           min-height: 100vh;
           margin: 10px auto 10px;
           padding: 40px 40px;
