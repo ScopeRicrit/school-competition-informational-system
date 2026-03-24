@@ -1,68 +1,275 @@
-* {
-  margin: auto auto;
-  text-align: center;
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --border: #dde3ec;
+  --border-focus: #4285f4;
+  --accent: #4285f4;
+  --accent-dark: #1a73e8;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --error: #d93025;
+  --error-bg: #fce8e6;
+  --error-border: #f5c6c2;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.2s ease;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 2px 6px rgba(0,0,0,0.1), 0 12px 32px rgba(0,0,0,0.08);
 }
 
-body {
-  display: table;
-  height: 100vh;  
-}
-
-main {
-  display: table-cell;
-  vertical-align: middle;  
-}
-
-fieldset {
-  width: 500px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: black solid 2px;
-}
-
-#form_container {
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  gap: 10px;
-  width: fit-content;
-}
-
-#form_container input, #form_container select {
-  width: 100%;
-}
-
-#form_container > :nth-child(even), #form_container option {
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
   text-align: left;
 }
 
-#form_container > :nth-child(odd) {
-  text-align: right;
-  width: 100%;
+/* ── Body ── */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(66,133,244,0.07) 0%, transparent 60%);
+  padding: 32px 24px;
 }
 
-#form_container > :last-child() {
+/* ── Main wrapper ── */
+main {
+  width: 100%;
+  max-width: 500px;
+  animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Page title ── */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
   text-align: center;
 }
 
+/* ── Card / Fieldset ── */
+fieldset {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition);
+}
+
+fieldset:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Legend — float trick agar tetap di dalam fieldset ── */
+legend {
+  display: table;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  float: left;
+}
+
+legend + * {
+  clear: both;
+}
+
+legend b {
+  font-weight: 600;
+}
+
+/* ── Form Container — 2-column grid ── */
+#form_container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 10px 16px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+/* ── Labels (odd children) ── */
+#form_container > :nth-child(odd) {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* ── Inputs & Selects (even children) ── */
+#form_container > :nth-child(even) {
+  text-align: left;
+  width: 100%;
+}
+
+#form_container input,
+#form_container select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Arrow icon for select */
+#form_container select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+#form_container option {
+  text-align: left;
+  color: var(--text-primary);
+}
+
+/* Remove number spinners */
 #student_nis::-webkit-outer-spin-button,
-#student_nis::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+#student_nis::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-#student_nis[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+#student_nis[type=number],
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
+/* Hover */
+#form_container input:hover,
+#form_container select:hover {
+  border-color: #b0bec5;
+}
+
+/* Focus */
+#form_container input:focus,
+#form_container select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
+  background: #fafcff;
+}
+
+/* ── Validation Text ── */
+#validation_text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--error);
+  min-height: 16px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0;
+  transition: all var(--transition);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+#validation_text:not(:empty) {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  padding: 8px 12px;
+  animation: shakeError 0.35s ease;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+
+/* ── Required asterisk ── */
+span {
+  color: var(--error);
+  margin-left: 2px;
+}
+
+/* ── Submit Button ── */
 #submit_button {
-  width: 100px;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: var(--accent);
+  box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  text-align: center;
 }
 
-span, #validation_text {
-  color: red;
+#submit_button:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+  transform: translateY(-1px);
+}
+
+#submit_button:active {
+  background: #1557b0;
+  transform: scale(0.98) translateY(0);
+  box-shadow: none;
+  transition-duration: 0.1s;
+}
+
+/* ── Responsive ── */
+@media (max-width: 540px) {
+  fieldset {
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  #form_container {
+    grid-template-columns: 1fr;
+  }
+
+  #form_container > :nth-child(odd) {
+    text-align: left;
+    margin-bottom: -4px;
+  }
 }
