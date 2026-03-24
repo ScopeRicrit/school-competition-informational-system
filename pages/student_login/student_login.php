@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Tambahkan Siswa Baru | SCIS Skensa</title>
+    <title>Masuk Akun | SCIS Skensa</title>
     <link rel="stylesheet" href="student_login.css">
   </head>
 
