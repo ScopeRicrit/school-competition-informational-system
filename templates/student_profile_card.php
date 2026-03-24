@@ -17,7 +17,7 @@
   // Student Profile Card / Kartu Profile Siswa
   function student_profile_card_html(
     $name = "Anonim",
-    $id = "?",
+    $nis = "?",
     $att_number = "???",
     $class = "???",
     $major = "???",
@@ -55,8 +55,8 @@
           </figure>
           <div id="student_datas">
             <div id="student_creds">
-              <p>ID</p>
-              <p>: $id</p>
+              <p>NIS</p>
+              <p>: $nis</p>
               <p>Nomor Absen</p>
               <p>: $att_number</p>
               <p>Kelas</p>
