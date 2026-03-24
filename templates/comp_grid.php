@@ -14,7 +14,7 @@
     }
     
     $html = <<<HTML
-      <a class="comp_card" href="posting">
+      <a class="comp_card" href="../comp_post/comp_post.php">
         <figure>
           <img src="$thumbnail" alt="thumbnail.png">
           <figcaption id="name"><b>$name</b></figcaption>
