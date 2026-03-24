@@ -41,7 +41,7 @@
     $edit_profile_button = "";
     if ($viewed_by_owner) {
       $edit_profile_button = <<<HTML
-        <a id="edit_profile" href="">Edit Profil</a> 
+        <a id="edit_profile" href="../student_profile_edit/student_profile_edit.php">Edit Profil</a> 
       HTML;
     }
 
