@@ -22,7 +22,7 @@
             <input type="number" name="nis" id="nis">
             
             <label for="password">Kata Sandi <span>*</span></label>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password">
           </div>
           <p id="validation_text"></p>
           <input id="submit_button" type="button" value="Masuk">
