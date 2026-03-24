@@ -72,7 +72,7 @@
         #comp_post_card {
           margin: auto auto;
           background-color: red;
-          width: 600px;
+          width: 50%;
           min-height: 500px;
           padding: 10px;
         }
