@@ -137,7 +137,7 @@ label span {
 
 /* ── Inputs ── */
 #form_container input[type="number"],
-#form_container input[type="text"] {
+#form_container input[type="password"] {
   width: 100%;
   padding: 11px 14px;
   border: 1.5px solid var(--border);
@@ -163,12 +163,12 @@ label span {
 }
 
 #form_container input[type="number"]:hover,
-#form_container input[type="text"]:hover {
+#form_container input[type="password"]:hover {
   border-color: #b0bec5;
 }
 
 #form_container input[type="number"]:focus,
-#form_container input[type="text"]:focus {
+#form_container input[type="password"]:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
   background: #fafcff;
