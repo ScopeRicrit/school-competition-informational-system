@@ -7,7 +7,7 @@
     $profile_pic = "../../assets/images/default_pfp.jpg",
   ) {
     $html = <<<HTML
-      <a class="student_card" href="../pages/student_profile/student_profile.php">
+      <a class="student_card" href="../student_profile/student_profile.php">
         <figure>
           <img src="$profile_pic" alt="pfp.png">
           <figcaption>
