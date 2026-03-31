@@ -29,7 +29,7 @@
   
   // Competition Grid
   // Penataan kompetisi
-  function comp_grid_html() {
+  function comp_grid_html($comps = []) {
     $cards = "";
     
     foreach ($comps as $comp) {
