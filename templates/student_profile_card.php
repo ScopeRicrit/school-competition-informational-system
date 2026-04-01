@@ -25,7 +25,7 @@
     $profile_description = "[Tidak ada deskripsi]",
     $joined_comps = [],
     $created_on = "??/??/??",
-    $viewed_by_owner = false
+    $viewed_by_owner = true
   ) {
     $entries = "";
     
