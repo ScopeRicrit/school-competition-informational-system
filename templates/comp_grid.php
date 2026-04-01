@@ -1,4 +1,6 @@
+
 <?php
+
   // Competition Card / Postingan
   function comp_card_html(
     $name = "Perlombaan Tak Ternama",
@@ -53,77 +55,148 @@
   function comp_grid_css() {
     $html = <<<HTML
       <style>
-        #comp_grid * {
-          margin: auto auto;
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        :root {
+          --navy:       #0f2044;
+          --navy-mid:   #1a3260;
+          --blue:       #2a52a0;
+          --gold:       #e6b94a;
+          --gold-light: #f5d98a;
+          --bg:         #eceef4;
+          --white:      #ffffff;
+          --text:       #1a1f2e;
+          --text-muted: #5a6278;
+          --shadow-sm:  0 2px 8px rgba(15,32,68,0.10);
+          --shadow-md:  0 6px 24px rgba(15,32,68,0.15);
+          --radius:     12px;
         }
 
+        /* ── Grid Wrapper ── */
         #comp_grid {
           margin: 0 auto;
-          width: 80%;
-          padding: 10px;
-          min-height: 100vh;
-          background-color: red;
+          width: 90%;
+          max-width: 1100px;
+          padding: 16px 0 32px;
+          min-height: 60vh;
+          background-color: transparent;       /* Ganti dari merah */
           display: grid;
-          gap: 10px;
-          grid-template-columns: repeat(auto-fill, 320px);
+          gap: 20px;
+          grid-template-columns: repeat(auto-fill, 300px);
           justify-content: center;
           align-content: baseline;
+        }
+
+        #comp_grid * {
+          margin: 0;
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        /* ── Card Kompetisi ── */
+        .comp_card {
+          background-color: var(--white);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow-sm);
+          width: 100%;
+          text-decoration: none;
+          color: var(--text);
+          border: 1px solid rgba(42,82,160,0.08);
+          overflow: hidden;
+          display: block;
+          transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .comp_card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-md);
         }
 
         .comp_card * {
           text-align: left;
         }
 
-        .comp_card {
-          background-color: orange;
-          height: fit-content;
-          width: 100%;
-          aspect-ratio: 1 / 0.5;
-          text-decoration: none;
-          color: unset;
-        }
-
         .comp_card figure {
           display: grid;
-          padding: 10px;
-          justify-content: space-between;
-          grid-template-columns: 70% 30%; 
-          grid-template-areas: 
-          "card_thumb card_thumb"
-          "card_name card_name"
-          "card_major card_status";
+          padding: 0;
+          grid-template-columns: 70% 30%;
+          grid-template-areas:
+            "card_thumb card_thumb"
+            "card_name  card_name"
+            "card_major card_status";
+          gap: 0;
         }
 
+        /* Thumbnail */
         .comp_card img {
           grid-area: card_thumb;
-          max-width: 100%;
+          width: 100%;
+          height: 160px;
+          object-fit: cover;
+          display: block;
         }
 
+        /* Nama kompetisi */
         .comp_card figcaption {
           grid-area: card_name;
-          font-size: 1.2em;
-          overflow-wrap: normal;
+          font-family: 'Playfair Display', serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--navy);
+          padding: 14px 16px 6px;
+          line-height: 1.3;
+          overflow-wrap: break-word;
           width: 100%;
         }
 
+        .comp_card figcaption b {
+          font-weight: 700;
+        }
+
+        /* Jurusan */
         .comp_card .major {
           grid-area: card_major;
+          font-size: 0.78rem;
+          color: var(--text-muted);
+          font-weight: 400;
+          padding: 0 16px 14px;
           width: 100%;
+          align-self: center;
         }
 
+        /* Status buka/tutup */
         .comp_card .status {
           grid-area: card_status;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          text-align: center;
+          padding: 0 10px 14px;
           width: 100%;
           margin-right: 0;
-          text-align: center;
+          align-self: end;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
         }
 
+        .comp_card .status span,
+        .comp_card .status {
+          display: inline-block;
+          padding: 4px 10px;
+          border-radius: 20px;
+        }
+
+        /* Status: Terbuka */
         .comp_card .opened {
-          background-color: green;
+          color: #1a6630;
+          background-color: rgba(34,139,34,0.12);
         }
 
+        /* Status: Tertutup */
         .comp_card .closed {
-          background-color: grey;
+          color: #5a5a5a;
+          background-color: rgba(120,120,120,0.12);
         }
       </style>
     HTML;
