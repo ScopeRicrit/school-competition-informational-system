@@ -1,3 +1,4 @@
+
 <?php
   // Tautan Eksternal
   function external_links_html(
@@ -64,66 +65,166 @@
   function comp_post_card_css() {
     $html = <<<HTML
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        :root {
+          --navy:       #0f2044;
+          --navy-mid:   #1a3260;
+          --blue:       #2a52a0;
+          --gold:       #e6b94a;
+          --gold-light: #f5d98a;
+          --bg:         #eceef4;
+          --white:      #ffffff;
+          --text:       #1a1f2e;
+          --text-muted: #5a6278;
+          --shadow-sm:  0 2px 8px rgba(15,32,68,0.10);
+          --shadow-md:  0 8px 28px rgba(15,32,68,0.15);
+          --radius:     14px;
+        }
+
+        /* ── Card Wrapper ── */
+        #comp_post_card {
+          margin: 0 auto;
+          background-color: var(--white);      /* Ganti dari merah */
+          width: 90%;
+          max-width: 720px;
+          min-height: 500px;
+          padding: 0 0 36px;
+          border-radius: var(--radius);
+          box-shadow: var(--shadow-md);
+          border: 1px solid rgba(42,82,160,0.08);
+          overflow: hidden;
+          font-family: 'DM Sans', sans-serif;
+        }
+
         #comp_post_card * {
           margin-top: 0;
           margin-bottom: 0;
+          font-family: 'DM Sans', sans-serif;
         }
 
-        #comp_post_card {
-          margin: auto auto;
-          background-color: red;
-          width: 50%;
-          min-height: 500px;
-          padding: 10px;
-        }
-
-        #comp_post_card h1 {
-          margin-top: -55px;
-        }
-          
+        /* ── Thumbnail ── */
         #comp_post_card #thumbnail {
           max-width: 100%;
+          width: 100%;
+          height: 280px;
+          object-fit: cover;
+          display: block;
         }
 
+        /* ── Konten dalam card ── */
+        #comp_post_card h1,
+        #comp_post_card h3,
+        #comp_post_card p,
+        #comp_post_card a:not(.return_link) {
+          padding-left: 28px;
+          padding-right: 28px;
+        }
+
+        /* ── Judul kompetisi ── */
+        #comp_post_card h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(1.4rem, 3vw, 1.9rem);
+          font-weight: 700;
+          color: var(--navy);
+          margin-top: 22px;
+          margin-bottom: 6px;
+          line-height: 1.25;
+        }
+
+        /* ── Subjudul (jurusan, guru, tanggal, link) ── */
+        #comp_post_card h3 {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: var(--text-muted);
+          margin-top: 6px;
+          padding-top: 0;
+        }
+
+        /* Link eksternal */
+        #comp_post_card a.external_links,
+        #comp_post_card h3.external_links {
+          color: var(--blue);
+          text-decoration: none;
+          font-size: 0.875rem;
+          font-weight: 500;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-left: 28px;
+          padding-right: 28px;
+          margin-top: 6px;
+          transition: color 0.15s;
+        }
+
+        #comp_post_card a.external_links:hover,
+        #comp_post_card h3.external_links:hover {
+          color: var(--navy);
+        }
+
+        /* Garis pemisah tipis sebelum deskripsi */
+        #comp_post_card p {
+          margin-top: 18px;
+          text-indent: 1.2em;
+          word-wrap: break-word;
+          max-width: 100%;
+          font-size: 0.95rem;
+          font-weight: 300;
+          line-height: 1.8;
+          color: #2e3550;
+        }
+
+        /* ── Tombol Edit Postingan ── */
+        #comp_post_card #edit_post {
+          display: block;
+          background-color: var(--gold);     /* Ganti dari oranye */
+          color: var(--navy);
+          padding: 9px 0;
+          margin: 18px 28px 0;
+          text-align: center;
+          border-radius: 9px;
+          font-weight: 700;
+          font-size: 0.875rem;
+          text-decoration: none;
+          transition: background 0.18s, transform 0.15s;
+          box-shadow: 0 3px 10px rgba(230,185,74,0.30);
+        }
+
+        #comp_post_card #edit_post:hover {
+          background-color: var(--gold-light);
+          transform: translateY(-1px);
+        }
+
+        /* ── Tombol Kembali (Return Link) ── */
         #comp_post_card .return_link {
-          width: 60px;
-          height: 60px;
+          width: 46px;
+          height: 46px;
           margin: 0;
           position: relative;
-          right: 90px;
-          bottom: 200px;
-          background-color: orange;
-          border-radius: 100%;
-
+          left: 20px;
+          bottom: 60px;           /* Naik sedikit di atas thumbnail */
+          background-color: var(--white);
+          border-radius: 50%;
           display: flex;
-          justify-content: center; 
+          justify-content: center;
           align-items: center;
+          box-shadow: 0 2px 10px rgba(15,32,68,0.20);
+          border: 1px solid rgba(42,82,160,0.12);
+          transition: box-shadow 0.18s, transform 0.18s;
+          text-decoration: none;
+        }
+
+        #comp_post_card .return_link:hover {
+          box-shadow: 0 4px 16px rgba(15,32,68,0.25);
+          transform: scale(1.07);
         }
 
         #comp_post_card .return_link img {
-          max-width: 70%;
-          max-height: 70%;
+          max-width: 55%;
+          max-height: 55%;
           margin: auto;
         }
-
-        #comp_post_card .external_links {
-          text-overflow: ellipsis ;
-        }
-
-        #comp_post_card #edit_post {
-          display: block;
-          background-color: orange;
-          padding: 5px 0;
-          margin: 10px 20%;
-          text-align: center;
-        }
-
-        #comp_post_card p {
-          margin-top: 10px;
-          text-indent: 1em;
-          word-wrap: break-word;
-          max-width: 100%;
-        } 
       </style>
     HTML;
 
