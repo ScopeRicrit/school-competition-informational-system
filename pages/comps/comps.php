@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beranda | CIS Skensa</title>
-  <link rel="stylesheet" href="comp.css">
+  <link rel="stylesheet" href="comps.css">
   
   <?php
     // Impor fungsi dari file PHP lain.
