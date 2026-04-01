@@ -1,13 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:       #0f2044;
+  --navy-mid:   #1a3260;
+  --blue:       #2a52a0;
+  --gold:       #e6b94a;
+  --gold-light: #f5d98a;
+  --bg:         #eceef4;
+  --white:      #ffffff;
+  --text:       #1a1f2e;
+  --text-muted: #5a6278;
+  --shadow-sm:  0 2px 8px rgba(15,32,68,0.10);
+  --shadow-md:  0 6px 24px rgba(15,32,68,0.14);
+  --radius:     14px;
+}
+
 * {
-  margin: auto auto;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
-  background-color: rgb(181, 177, 189);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(42,82,160,0.11) 0%, transparent 65%);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
 }
 
 main {
-  padding: 10px;
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+/* Card profil utama */
+.student-profile-card,
+.profile-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid rgba(42,82,160,0.08);
+}
+
+/* Header banner card */
+.profile-card-header,
+.student-profile-card-header {
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--blue) 100%);
+  padding: 36px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  position: relative;
+}
+
+/* Foto profil */
+.profile-card-header img,
+.student-profile-card-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+/* Inisial avatar fallback */
+.avatar-initial {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--gold);
+}
+
+.profile-card-header h2,
+.student-profile-card-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.profile-card-header .class-badge,
+.student-profile-card-header .class-badge {
+  background: rgba(230,185,74,0.22);
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+/* Body card */
+.profile-card-body,
+.student-profile-card-body {
+  padding: 28px 32px 32px;
+}
+
+/* Baris info */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(42,82,160,0.08);
+  gap: 12px;
+}
+
+.info-row:last-of-type {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  min-width: 120px;
+}
+
+.info-value {
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Tombol edit */
+a.btn-edit,
+button.btn-edit,
+.btn-edit {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 26px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(230,185,74,0.35);
+}
+
+a.btn-edit:hover,
+button.btn-edit:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* Return link */
+a.return-link,
+.return-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a.return-link:hover,
+.return-link:hover {
+  color: var(--navy);
 }
