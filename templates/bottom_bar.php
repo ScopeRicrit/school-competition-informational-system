@@ -1,4 +1,6 @@
+
 <?php
+
   // Bottom Bar / Footer
   // Bilah navigasi di bagian paling bawah halaman web.
   function bottom_bar_html($account_name = NULL) {
@@ -40,32 +42,61 @@
   function bottom_bar_css() {
     $html = <<<HTML
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+          --navy:     #0f2044;
+          --gold:     #e6b94a;
+          --white:    #ffffff;
+          --text-dim: rgba(255,255,255,0.60);
+        }
+
         footer * {
           margin: auto 0;
-          color: white;
-          bottom: 0;
+          font-family: 'DM Sans', sans-serif;
         }
 
         footer {
           margin: 0;
-          background-color: #232325;
+          background: linear-gradient(90deg, #0d1c3a 0%, #1a3260 100%);
           display: flex;
           justify-content: space-evenly;
-          height: 80px;
+          align-items: center;
+          height: 72px;
+          border-top: 2px solid rgba(230,185,74,0.25);
         }
 
+        /* Pesan login */
+        footer p {
+          color: var(--text-dim);
+          font-size: 0.8rem;
+          font-weight: 300;
+          letter-spacing: 0.3px;
+          text-align: center;
+        }
+
+        /* Ikon sosial media - tombol bulat */
         footer a {
-          height: 50px;   
-          border-radius: 100%;
-          aspect-ratio: 1/1;
+          height: 44px;
+          width: 44px;
+          border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+          transition: transform 0.18s, opacity 0.18s, box-shadow 0.18s;
+          flex-shrink: 0;
+        }
+
+        footer a:hover {
+          transform: translateY(-3px) scale(1.08);
+          opacity: 0.90;
+          box-shadow: 0 4px 14px rgba(0,0,0,0.30);
         }
 
         footer img {
-          height: 25px;
-          margin: auto auto;
+          height: 22px;
+          width: auto;
+          margin: auto;
         }
 
         footer #globe_icon {
@@ -75,13 +106,13 @@
         footer #fb_icon {
           background-color: #1877F2;
         }
-        
+
         footer #yt_icon {
           background-color: #B2071D;
         }
 
         footer #ig_icon {
-          background-color: #D300C5;
+          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
         }
       </style>
     HTML;
