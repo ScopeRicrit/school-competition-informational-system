@@ -24,7 +24,7 @@
   
   // Student Grid
   // Penataan siswa
-  function student_grid_html() {
+  function student_grid_html($students = []) {
     $cards = "";
     
     foreach ($students as $student) {
