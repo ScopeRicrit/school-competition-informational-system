@@ -16,6 +16,11 @@ function clientValidation() {
     return;
   }
 
+  if (!moreThanZeroNumber(student_data[0])) {
+    setValidityText("NIS harus lebih dari 0");
+    return;
+  } 
+
   loginForm.submit();
 }
 
@@ -31,6 +36,12 @@ function allFieldInputted(inputs) {
   
   return validity;
 }
+
+// Memeriksa apakah input bilangan lebih dari 0.
+function moreThanZeroNumber(number) {
+  return number > 0;
+}
+
 
 function setValidityText(message) {
   document.getElementById("validation_text").innerText = message;

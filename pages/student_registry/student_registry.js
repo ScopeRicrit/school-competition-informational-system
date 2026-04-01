@@ -30,6 +30,7 @@ function clientValidation() {
     registryForm.name.value,
     registryForm.major.value,
     registryForm.class.value,
+    registryForm.att_number.value,
     registryForm.password.value,
     registryForm.password_confirm.value
   ];
@@ -39,15 +40,26 @@ function clientValidation() {
     return;
   }
 
-  if (!matchingPasswordConfirmation(student_data[4], student_data[5])) {
+  if (!moreThanZeroNumber(student_data[0])) {
+    setValidityText("NIS harus lebih dari 0");
+    return;
+  } 
+
+  if (!moreThanZeroNumber(student_data[4])) {
+    setValidityText("Nomor absen harus lebih dari 0");
+    return;
+  } 
+  
+  if (!lengthyPassword(student_data[5])) {
+    setValidityText("Password harus memiliki minimal 8 karakter");
+    return;
+  } 
+
+  if (!matchingPasswordConfirmation(student_data[5], student_data[6])) {
     setValidityText("Password harus sesuai dengan konfirmasi password");
     return;
   }
 
-  if (!lengthyPassword(student_data[4])) {
-    setValidityText("Password harus memiliki minimal 8 karakter");
-    return;
-  } 
 
   registryForm.submit();
 }
@@ -75,6 +87,12 @@ function lengthyPassword(password) {
   return password.length >= 8;
 }
 
+// Memeriksa apakah input bilangan lebih dari 0.
+function moreThanZeroNumber(number) {
+  return number > 0;
+}
+
 function setValidityText(message) {
   document.getElementById("validation_text").innerText = message;
 }
+
