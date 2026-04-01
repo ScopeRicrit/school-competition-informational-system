@@ -19,7 +19,7 @@
           <legend><b>Data Siswa</b></legend>
           <div id="form_container">
             <label for="nis">NIS <span>*</span></label>
-            <input type="number" name="nis" id="nis">
+            <input type="number" name="nis" id="nis" min="1">
             
             <label for="password">Kata Sandi <span>*</span></label>
             <input type="password" name="password" id="password">

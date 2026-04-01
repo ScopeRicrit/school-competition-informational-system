@@ -15,7 +15,7 @@
           <legend><b>Data Siswa</b></legend>
           <div id="form_container">
             <label for="nis">NIS <span>*</span></label>
-            <input type="number" name="nis" id="nis">
+            <input type="number" name="nis" id="nis" min="1">
 
             <label for="full_name">Nama <span>*</span></label>
             <input type="text" name="full_name" id="full_name">
@@ -40,7 +40,7 @@
             </select>
             
             <label for="att_number">No. Absen <span>*</span></label>
-            <input type="number" name="att_number" id="att_number">
+            <input type="number" name="att_number" id="att_number" min="1">
 
             <label for="password">Kata Sandi <span>*</span></label>
             <input 
