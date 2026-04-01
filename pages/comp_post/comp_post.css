@@ -1,12 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:       #0f2044;
+  --navy-mid:   #1a3260;
+  --blue:       #2a52a0;
+  --gold:       #e6b94a;
+  --gold-light: #f5d98a;
+  --bg:         #eceef4;
+  --white:      #ffffff;
+  --text:       #1a1f2e;
+  --text-muted: #5a6278;
+  --shadow-sm:  0 2px 8px rgba(15,32,68,0.10);
+  --shadow-md:  0 6px 24px rgba(15,32,68,0.14);
+  --radius:     14px;
+}
+
 * {
-  margin: auto auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
-  background-color: rgb(181, 177, 189);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 70% 35% at 50% -5%, rgba(42,82,160,0.10) 0%, transparent 60%);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
 }
 
 main {
-  padding: 10px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+/* Card utama post */
+.comp-post-card,
+.post-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid rgba(42,82,160,0.08);
+}
+
+/* Gambar banner atas card */
+.comp-post-card img.banner,
+.post-card img.banner,
+.post-card > img:first-child {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.comp-post-card-body,
+.post-card-body,
+.post-card > div {
+  padding: 28px 32px 36px;
+}
+
+/* Kategori / badge */
+.badge,
+.category,
+.tag {
+  display: inline-block;
+  background: rgba(230,185,74,0.16);
+  color: #7a5500;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+/* Judul post */
+.comp-post-card h1,
+.comp-post-card h2,
+.post-card h1,
+.post-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+/* Meta info (tanggal, penyelenggara, dll) */
+.meta,
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 12px 0 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(42,82,160,0.10);
+}
+
+.meta span,
+.post-meta span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.meta span strong,
+.post-meta span strong {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Isi konten / deskripsi */
+.comp-post-card p,
+.post-card p,
+.post-content p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #2e3550;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.post-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin: 24px 0 10px;
+}
+
+/* Tombol daftar / aksi */
+a.btn-primary,
+button.btn-primary,
+.btn-primary {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 11px 28px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(42,82,160,0.25);
+}
+
+a.btn-primary:hover,
+button.btn-primary:hover {
+  background: var(--navy-mid);
+  transform: translateY(-1px);
+}
+
+/* Tombol kembali */
+a.return-link,
+.return-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a.return-link:hover,
+.return-link:hover {
+  color: var(--navy);
 }
