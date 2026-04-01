@@ -1,3 +1,4 @@
+
 <?php
   // Entri Kompetisi yang diikuti
   function joined_comps_html(
@@ -83,85 +84,200 @@
   function student_profile_card_css() {
     $html = <<<HTML
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        :root {
+          --navy:       #0f2044;
+          --navy-mid:   #1a3260;
+          --blue:       #2a52a0;
+          --gold:       #e6b94a;
+          --gold-light: #f5d98a;
+          --bg:         #eceef4;
+          --white:      #ffffff;
+          --text:       #1a1f2e;
+          --text-muted: #5a6278;
+          --shadow-sm:  0 2px 8px rgba(15,32,68,0.10);
+          --shadow-md:  0 8px 28px rgba(15,32,68,0.15);
+          --radius:     14px;
+        }
+
+        /* ── Card Wrapper ── */
         #student_profile {
-          background-color: red;
-          width: 50%;
-          min-height: 100vh;
-          margin: 10px auto 10px;
-          padding: 40px 40px;
+          background-color: var(--white);      /* Ganti dari merah */
+          width: 90%;
+          max-width: 760px;
+          min-height: auto;
+          margin: 16px auto 24px;
+          padding: 0;
+          border-radius: var(--radius);
+          box-shadow: var(--shadow-md);
+          border: 1px solid rgba(42,82,160,0.08);
+          overflow: hidden;
+          font-family: 'DM Sans', sans-serif;
         }
 
         #student_profile * {
-          text-align: center;
-          margin: 0 0;
+          margin: 0;
+          font-family: 'DM Sans', sans-serif;
         }
 
+        /* ── Section Atas (foto + data) ── */
         #student_profile section {
           display: flex;
-          gap: 10px;
+          gap: 0;
           flex-direction: row;
+          background: linear-gradient(135deg, var(--navy-mid) 0%, var(--blue) 100%);
+          padding: 32px 36px;
+          align-items: flex-start;
         }
 
-        #student_profile > div {
-          display: flex;
-          gap: 10px;
-          flex-direction: column;
-        }
-
+        /* ── Kolom Foto + Nama ── */
         #student_profile figure {
-          width: 40%;
+          width: 38%;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          text-align: center;
         }
 
         #student_profile figure img {
-          height: 150px;
+          height: 110px;
+          width: 110px;
+          object-fit: cover;
+          object-position: top;
+          border-radius: 50%;
+          border: 4px solid var(--gold);
+          box-shadow: 0 4px 16px rgba(0,0,0,0.25);
         }
 
+        #student_profile figure figcaption h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: var(--white);
+          line-height: 1.25;
+          text-align: center;
+        }
+
+        /* Tombol Edit Profil */
+        #student_profile #edit_profile {
+          display: inline-block;
+          background-color: var(--gold);      /* Ganti dari oranye */
+          color: var(--navy);
+          padding: 7px 20px;
+          border-radius: 8px;
+          font-size: 0.8rem;
+          font-weight: 700;
+          text-decoration: none;
+          text-align: center;
+          transition: background 0.18s, transform 0.15s;
+          box-shadow: 0 3px 10px rgba(230,185,74,0.30);
+        }
+
+        #student_profile #edit_profile:hover {
+          background-color: var(--gold-light);
+          transform: translateY(-1px);
+        }
+
+        /* ── Kolom Data Siswa ── */
         #student_profile #student_datas {
-          width: 60%;
+          width: 62%;
+          display: flex;
+          gap: 12px;
+          flex-direction: column;
+          padding-left: 24px;
         }
 
+        /* Grid label : nilai */
         #student_profile #student_creds {
           display: grid;
-          grid-template-columns: 30% 70%;
+          grid-template-columns: 42% 58%;
+          row-gap: 6px;
         }
 
         #student_profile #student_creds > * {
           text-align: left;
+          font-size: 0.82rem;
+          color: rgba(255,255,255,0.80);
+          line-height: 1.55;
         }
 
-        #student_profile #edit_profile {
-          display: block;
-          background-color: orange;
-          padding: 5px 0;
+        /* Kolom label (kiri) */
+        #student_profile #student_creds > p:nth-child(odd) {
+          font-weight: 600;
+          color: rgba(255,255,255,0.55);
+          font-size: 0.78rem;
+          text-transform: uppercase;
+          letter-spacing: 0.3px;
         }
 
+        /* Kolom nilai (kanan) */
+        #student_profile #student_creds > p:nth-child(even) {
+          color: var(--white);
+          font-weight: 400;
+        }
+
+        /* Deskripsi profil */
         #student_profile #description {
           max-width: 100%;
           text-align: left;
-          margin-top: 10px;
+          margin-top: 4px;
           text-indent: 1em;
           word-wrap: break-word;
+          font-size: 0.85rem;
+          color: rgba(255,255,255,0.70);
+          line-height: 1.65;
+          font-weight: 300;
         }
 
+        /* ── Section Bawah (daftar lomba) ── */
         #student_profile h3 {
-          padding: 10px
+          padding: 18px 28px 10px;
+          font-family: 'Playfair Display', serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--navy);
+          border-top: 1px solid rgba(42,82,160,0.09);
         }
 
         #student_profile #comp_list {
           display: flex;
           flex-direction: column;
+          padding: 0 16px 20px;
+          gap: 4px;
         }
 
+        /* Entry kompetisi yang diikuti */
         #student_profile .comp_entry {
           display: flex;
           align-items: center;
-          justify-content: left;
-          margin: 5px 10px;
-          gap: 10px;
+          justify-content: flex-start;
+          padding: 9px 12px;
+          gap: 12px;
+          border-radius: 9px;
+          text-decoration: none;
+          transition: background 0.17s;
+        }
+
+        #student_profile .comp_entry:hover {
+          background: rgba(42,82,160,0.06);
         }
 
         #student_profile .comp_entry img {
-          width: 40px;
+          width: 38px;
+          height: 38px;
+          border-radius: 8px;
+          object-fit: cover;
+          flex-shrink: 0;
+          box-shadow: var(--shadow-sm);
+        }
+
+        #student_profile .comp_entry p {
+          font-size: 0.88rem;
+          font-weight: 500;
+          color: var(--text);
         }
       </style>
     HTML;
